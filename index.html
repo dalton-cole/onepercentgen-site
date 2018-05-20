@@ -146,7 +146,21 @@
             <h3 class="section-subheading text-muted">Transparent Millennial Philanthropy.</h3>
             <p>1% of your income goes to funding the top 1% of non-profits in the world that are affecting 1% of the world's population.</p> 
             <p>Our completely free platform allows Millennials to donate 1% of their income and nominate a non-profit for funding. All non-profits on the platform will submit full financials for display on the site and scores from GuideStar and Charity Navigator will be incorporated into the analysis. Each Millennial donor gets to vote for their favorite non-profits on the platform and the non-profit with the most votes at the end of the giving period receives 100% of the donated money. All services (legal, accounting, banking, etc) are donated to the site so 100% of funds donated can be given to the chosen non-profit.</p>
-            <p>We plan to give away $100M of Millennial money by 2022 to the highest-impact, most-transparent charities in the world . . . for free.</p>
+          </div>
+        </div>
+        <div class="row"> 
+          <div class="col-lg-12 text-center">
+            <p>Enter your annual income to determine your monthly donation:</p>
+            <div class="input-group col-md-2 offset-md-5">
+              <div class="input-group-prepend">
+                <span class="input-group-text">$</span>
+              </div>
+              <input type="text" id="annualIncome" class="form-control" aria-label="Amount (to the nearest dollar)">
+            </div>
+            <div class="col-md-2 offset-md-5">
+              <button class="btn btn-primary" id="calculateDonations">Calculate 1%</button>
+            </div>
+            <h2 class="section-heading text-uppercase" id="donationAmount"></h2>
           </div>
         </div>
         <!-- <div class="row">
@@ -479,7 +493,6 @@
       rowTemplate: NPTemplate
     });
 
-
     $(document).on("click", ".portfolio-link", function () {
      var logo = $(this).data('logo');
      var details = $(this).data('details');
@@ -496,6 +509,12 @@
      document.getElementById('founded').textContent=founded;
      document.getElementById('focusarea').textContent=focusarea;
 
+    });
+
+    $(document).on("click", "#calculateDonations", function () {
+     var income = document.getElementById('annualIncome').value;
+     var donationAmount = (parseInt(income) / 1200).toFixed(2);
+     document.getElementById('donationAmount').textContent= "$" + donationAmount + " a month";
     });
     </script>
     
